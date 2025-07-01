@@ -1,0 +1,25 @@
+*{
+    margin:0;
+}
+.navbar{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    
+}
+.navbar ul{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    width:85%;
+
+}
+.navbar ul li{
+    list-style:none;
+    border: 1px solid;
+    height:50px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
