@@ -1,6 +1,7 @@
 *{
     margin:0;
     background-color:#cce3de ;
+    perspective: 100px;
 }
 .navbar{
     display:flex;
@@ -8,11 +9,11 @@
     justify-content:space-between;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     height: 50px;
-    background-color: #878FE6;
+    background-color: #14B8A6;
 
 }
 .navbar *{
-        background-color: #878FE6;
+    background-color:inherit;
 
 }
 .navbar ul{
@@ -25,60 +26,153 @@
 }
 .navbar ul li{
     list-style:none;
-    
     height:50px;
     width:100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #878FE6;
-    color:rgb(33, 4, 44)
+    position:relative;
+    color:rgb(33, 4, 44);
+    cursor: default;
+    
+  transition: filter 0.3s ease;
 }
-.navbar ul li *{
-   background-color: rgba(240, 248, 255, 0);
+#pw{
+    color:#14B8A6;
 }
-.navbar a{
-    z-index: 1;
+.navbar ul li a{
+    background-color: rgba(240, 248, 255, 0);
+    text-decoration: none;
+    color:black;
 }
-.anim{
-    background-color: #121FB0;
-    position:absolute;
-    height:5px;
-    bottom :0;
-    width:calc(25% - 10px);
-    left:40px;
-    transition: all 0.5s 0.1s ;
-    z-index: 2;
-}
-.navbar ul :nth-child(1):hover~.anim{
-    left:40px;
-    bottom:0;
-}
-.navbar ul :nth-child(2):hover~.anim{
-    left:calc(25% + 30px);
-    bottom:0;
 
+.navbar ul li::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    transition: all 0.6s;
 }
-.navbar ul :nth-child(3):hover~.anim{
-    left:calc(50% + 20px);
-    bottom:0;
-
-}
-.navbar ul :nth-child(4):hover~.anim{
-    left:calc(75% + 10px);
-    bottom:0;
-
-}
-.navbar ul li:hover{
-    background-color: #646ab2;
-    color:#121FB0;
-}
-.navbar ul ::after{
+.navbar ul  li::after{
     content:"";
-    height: 2px;
-    width:100%;
-    background-color: #DEDAAD;
     position:absolute;
-    bottom:0;
-    z-index: 0;
+    height: 1px;
+    width:100%;
+    background-color: black;
+    bottom:1px;
+    left:0;
+    opacity: 0;
+    transition: all 0.6s;
+
 }
+.navbar ul  li:hover::before{
+  opacity: 0.3;
+}
+.navbar ul  li:hover::after{
+    opacity: 1;
+    animation-name: upANDdown;
+    animation-direction:normal;
+    animation-duration: 0.6s;
+    animation-iteration-count: unset;
+
+}
+@keyframes upANDdown{
+    0%{
+        width:0%;
+        
+    }
+    100%{
+        width:100%
+    }
+}
+.frontPage{
+    border-radius: 20px;
+    height: 300px;
+    width: 80%;
+    margin: 100px auto;
+    background-color: #0F172A;
+    color:aliceblue;
+    position: relative;
+    overflow:hidden;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    animation: mainFlow 1s 0.6s infinite alternate;
+
+}
+.mainword{
+    font-size:2.5em;
+    text-align:center;
+    margin-top:30px;
+    
+}
+.frontPage p{
+    color:#FACC15;
+    font-size: 1.6em;
+   
+    text-align: center;
+}
+.frontPage *{
+    background-color: inherit;
+}
+.btn *{
+    background-color: #0f172a00;
+}
+ .btn{
+    height: 50px;
+    width:150px;
+    background-color: #14B8A6;
+    border-radius: 40px;
+    position:absolute;
+    left:30px;
+    border: 2px solid #0F172A;
+    bottom: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor:default;
+    perspective: 100px;
+    overflow: hidden; 
+}
+.btn::after{
+    content:"";
+    width:400px;
+    height:300px;
+    position: absolute;
+    top:-100px;
+    left:-100px;
+    opacity:1;
+    z-index: -1;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #14B8A6 100%);
+    animation: rotations 300s infinite linear ;
+}
+.btn:hover::after{
+    opacity:1;
+}
+@keyframes rotations{
+    0%{
+        transform: rotate(0rad);
+    }
+    100%{
+        transform: rotate(360rad);
+    }
+}
+@keyframes mainFlow{
+    0%{
+        transform: translate3d(0,0,0);
+    }100%{
+        transform: translate3d(0px,10px,0);
+    }
+}
+
+.script{
+    width:500px;
+    padding:38px 0 0px 252px;
+    font-size: 1.3em;
+    color:#E2E8F0;
+}
+
