@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="logo.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="logo_dz.png" type="image/png">
     <title>CripMo</title>
 </head>
@@ -30,15 +33,67 @@
             Create passwords and check their strength With Encrypting your notes To make your life more safe
         </div>
         <div class="cover">
-            <div class="btn"><a >Start Generating</a></div>
+            <div class="btn"><a href="#gin">Start Generating</a></div>
         </div>
         
     </div>
-    <div class="GeneratMotor">
+    <div class="bigContainer">
 
+        <div id="gin" class="GeneratMotor">
+            <div class="bar">
+                <form action="">
+                    <div class="Title">Generate Password</div>
+                    <div class="container">
+                        <div type="text" id="mainBar"></div>
+                        <div class="refresh"></div>
+                        <div class="copy"></div>
+                        <div class="secure"></div>
+                    </div>
+                    <div class="ground">
+                        <div class="gTitle">Customize Your Password</div>
+                        <div class="options">
+                            <div class="case">
+                                <input id="Upcase" name="Upper Case" type="checkbox">
+                                <label for="Upcase">Upper Case</label>
+                        </div>
+                        <div class="case">    
+                            <input type="checkbox" id="Lowcase" name="Lower Case">
+                            <label for="Lowcase">Lower Case</label>
+                        </div>
+                        <div class="case">
+                            <input type="checkbox" id="Smbl" name="Symbols">
+                            <label for="Smbl">Symbols</label>
+                        </div>
+                        <div class="case">
+                            <input type="checkbox" id="Num" name="Numbers">
+                            <label for="Num">Numbers</label>
+                        </div>
+                    </div>
+                    <div class="range">
+                        <div id="length">
+                            <div class="length"></div>
+                            <div class="plus">+</div>
+                            <div class="minus">-</div>
+                        </div>
+                        <input class="size" type="range" min="1"max="50">
+                    </div>
+                </div>
+                    <div class="pattern">Patterns</div>
+                    <div class="browser">
+
+                        <input list="browserlist" type="text" id="Opt" name="Patterns">
+                        <datalist id="browserlist">
+                            <option class="option" value="Easy Word">Easy Word</option>
+                            <option class="option" value="Spiled Word">Spiled Word</option>
+                            <option class="option" value="baldk">baldk</option>
+                        </datalist>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="GeneratMotor-shadow"></div>
     </div>
     <script src="index.js">
-
     </script>
 </body>
 </html>
