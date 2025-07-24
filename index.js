@@ -10,9 +10,51 @@ let secure = document.getElementsByClassName("secure")[0];
 let Size = document.getElementsByClassName("length")[0];
 let plus = document.getElementsByClassName("plus")[0];
 let minus = document.getElementsByClassName("minus")[0];
-let browser = document.getElementById("browserlist")
-let opt = document.querySelectorAll("option");
+
+let enbtn = document.querySelector("#encrypt-btn");
+let inputErea = document.querySelector("#text-to-encrypt");
+let outputErea = document.querySelector("#text-of-encrypt");
+let inputErea1 = document.querySelector("#text-to-decrypt");
+let outputErea1 = document.querySelector("#text-of-decrypt");
+let swap = document.querySelector(".next");
+let debtn = document.querySelector("#decrypt-btn");
+let Decry = document.querySelector(".Decrypt");
+let Encry = document.querySelector(".Encrypt");
+let cut1 = document.querySelectorAll(".cut")[0];
+let cut2 = document.querySelectorAll(".cut")[1];
 let tabl=[(case1.checked)?1:0,(case2.checked)?1:0,(case3.checked)?1:0,(case4.checked)?1:0];
+bar.innerHTML=GeneratePassWord(val.value);
+//   Encrypting and Decrypting variables //
+const code = 100;
+
+// Compute d (modular inverse of e mod r)
+
+// --------------------------------------//
+Size.textContent = val.value;
+cut1.addEventListener('click',()=>{
+    cut1.textContent = "✔"
+    cut1.style.backgroundColor="#70e000";
+    setTimeout(() => {
+        cut1.textContent = "copy";
+        cut1.style.backgroundColor="#0F172A"
+    }, 2000);
+    outputErea.select();
+    document.execCommand('copy');
+    outputErea.blur();
+    
+})
+cut2.addEventListener('click',()=>{
+    cut2.textContent = "✔"
+    cut2.style.backgroundColor="#70e000";
+    setTimeout(() => {
+        cut2.textContent = "copy";
+        cut2.style.backgroundColor="#0F172A"
+    }, 2000);
+    outputErea1.select();
+    document.execCommand('copy');
+    outputErea1.blur();
+    
+})
 copy.addEventListener('mouseover',()=>{
     setTimeout(()=>{
     copy.textContent = "copy";
@@ -23,13 +65,34 @@ copy.addEventListener('mouseout',()=>{
     copy.textContent = "";
     },300) 
 })
-copy.addEventListener('click',()=>{
-    copy.textContent = "copied!"
-    bar.select();
-    document.execCommand('copy');
-    bar.blur();
+// copy.addEventListener('click',()=>{
+//     copy.textContent = "copied!"
+//     bar.select();
+//     document.execCommand('copy');
+//     bar.blur();
+
     
-})
+// })
+
+// Just replace your copy event listener with this:
+
+copy.addEventListener('click', () => {
+    // Get only the text, ignore HTML tags
+    const passwordText = bar.textContent;
+    
+    // Create temporary input to copy from
+    const tempInput = document.createElement('input');
+    tempInput.value = passwordText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    
+    copy.textContent = "copied!";
+    setTimeout(() => {
+        copy.textContent = "copy";
+    }, 300);
+});
 case1.addEventListener('click',()=>{
     ref.click();
 })
@@ -47,7 +110,6 @@ function Random(a, b) {
     return Math.floor(Math.random() * (b - a + 1)) + a;
 }
 function getPasswordStrength(password) {
-    console.log(password.length);
     if (!password || password.length<8) return 0;
     
     // Deduct points for common passwords
@@ -124,7 +186,7 @@ function GeneratePassWord(len) {
         password += pw;
     }
     let strength = getPasswordStrength(strpass);
-    console.log(strength);
+    
     if (strength==0 ) {
         secure.textContent = 'weak'
         secure.classList.add('weak');
@@ -140,12 +202,28 @@ function GeneratePassWord(len) {
     }
     return password;
 }
+function EncryptingText(text, shiftKey) {
+    let encrypted = "";
+    for (let i = 0; i < text.length; i++) {
+        // Shift the character code and wrap around 127
+        let shifted = ((text.charCodeAt(i) - 32 + shiftKey) % 95) + 32;
+        encrypted += String.fromCharCode(shifted);
+    }
+    return encrypted;
+}
 
-let optInput = document.getElementById("Opt");
-optInput.addEventListener('input', () => {
-    console.log("Option selected:", optInput.value);
-    // Add your logic here for what should happen when an option is selected
-});
+function DecryptingText(encryptedText, shiftKey) {
+    let decrypted = "";
+    for (let i = 0; i < encryptedText.length; i++) {
+        // Reverse the shift and wrap around 127
+        let shifted = ((encryptedText.charCodeAt(i) - 32 - shiftKey) % 95) 
+         shifted = (shifted + 95) % 95; // Force positive (0-94)
+        shifted += 32;
+        decrypted += String.fromCharCode(shifted);
+    }
+    return decrypted;
+}
+
 plus.addEventListener('click',()=>{
     val.value++;
     Size.textContent = val.value;
@@ -164,3 +242,17 @@ val.addEventListener('change',()=>{
     bar.innerHTML=GeneratePassWord(val.value);
     Size.textContent = val.value;
 });
+enbtn.addEventListener('click',()=>{
+    outputErea.value = EncryptingText(inputErea.value,code);
+})
+debtn.addEventListener('click',()=>{
+    outputErea1.value = DecryptingText(inputErea1.value,code);
+})
+swap.addEventListener('click',()=>{
+    Decry.classList.toggle("hide");
+    Encry.classList.toggle("hide");
+    outputErea1.value = "";
+    outputErea.value = "";
+    inputErea.value = "";
+    inputErea1.value = "";
+})

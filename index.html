@@ -12,17 +12,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="icon" href="logo_dz.png" type="image/png">
     <title>CripMo</title>
 </head>
 <body>
+    <div class="thing"></div>
     <nav class="navbar">
     <div class="logo"><img src="logo_d.png" alt=""></div>
     <ul >
         <li><a href="#">home</a></li>
-        <li><a href="#">about</a></li>
         <li><a href="#">Article</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#contact">Contact</a></li>
         <div class="anim"></div>
     </ul>
     </nav>
@@ -36,6 +41,61 @@
             <div class="btn"><a href="#gin">Start Generating</a></div>
         </div>
         
+    </div>
+     <div class="principles">
+        <h1>the three essential principles for creating strong passwords</h1>
+        <div class="princ_cover">
+            <div class="p p1">
+                <h2>1. Complexity & Length</h2>
+                <ul>Why it's matter:
+                    <li>Longer and more complex passwords are exponentially harder to crack using brute-force or dictionary attacks</li>
+                    <li>Short or simple passwords (like 123456 or password) can be broken in seconds.</li>
+                </ul>
+                <ul>How to apply it:
+                    <li>Minimum 12 characters (longer is better—some experts recommend 16+).</li>
+                    <li>Use a mix of:
+                        <ul>
+                            <li>Uppercase letters (A-Z)</li>
+                            <li>Lowercase letters (a-z)</li>
+                            <li>Numbers (0-9)</li>
+                            <li>Special symbols (!@#$%^&*)</li>
+                        </ul>
+                    </li>
+                    <li>Avoid predictable patterns (e.g., Password1!, Abcd1234).</li>
+                    <li>Example of a strong password: J4#k9L$pQ!vM2*Wn</li>
+                </ul>
+            </div>
+            <div class="p p2">
+                <h2>2. Unpredictability</h2>
+                <ul>Why it's matter:
+                    <li>Hackers use dictionaries, common passwords, and personal info (like pet names or birthdays) to guess passwords.</li>
+                    <li>Social media makes it easy to find personal details that people often use in passwords.</li>
+                </ul>
+                <ul>How to apply it:
+                    <li>Never use:
+                        <ul>
+                            <li>Common words (password, admin, welcome)</li>
+                            <li>Simple sequences (123456, qwerty, abcdef)</li>
+                            <li>Personal info (yourname1985, Fido2023)</li>
+                        </ul>
+                    </li>
+                    <li>Avoid keyboard walks (e.g., 1qaz2wsx or !QAZ@WSX).</li>
+                    <li>Make it random (use a password generator if needed).</li>
+                </ul>
+            </div>
+            <div class="p p3">
+                <h2>3. Uniqueness (No Password Reuse)</h2>
+                <ul>Why it matters:
+                    <li>If one account gets hacked (e.g., in a data breach), attackers will try the same password on other accounts.</li>
+                    <li>Over 80% of hacking-related breaches involve reused or weak passwords.</li>
+                </ul>
+                <ul>How to apply it:
+                    <li>Use a different password for every account (email, banking, social media, etc.).</li>
+                    <li>Store passwords securely with a password manager (e.g., Bitwarden, 1Password, KeePass).</li>
+                    <li>Enable Two-Factor Authentication (2FA) for extra security (SMS, authenticator apps, or hardware keys).</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="bigContainer">
 
@@ -78,21 +138,166 @@
                         <input class="size" type="range" min="1"max="50">
                     </div>
                 </div>
-                    <div class="pattern">Patterns</div>
-                    <div class="browser">
-
-                        <input list="browserlist" type="text" id="Opt" name="Patterns">
-                        <datalist id="browserlist">
-                            <option class="option" value="Easy Word">Easy Word</option>
-                            <option class="option" value="Spiled Word">Spiled Word</option>
-                            <option class="option" value="baldk">baldk</option>
-                        </datalist>
-                    </div>
+                    
                 </form>
             </div>
         </div>
         <div class="GeneratMotor-shadow"></div>
     </div>
+   
+    <div class="principles">
+            <h1>The Three Essential Principles for Secure Encryption & Decryption</h1>
+            <div class="princ_cover">
+                <div class="p p1">
+                    <h2>1. Use Strong Encryption Algorithms</h2>
+                    <ul>Why it matters:
+                        <li>Weak or outdated algorithms (e.g., DES, RC4) can be easily broken by attackers.</li>
+                        <li>Strong encryption ensures data remains confidential even if intercepted.</li>
+                    </ul>
+                    <ul>How to apply it:
+                        <li>For <strong>Data at Rest</strong> (files/disks):
+                            <ul>
+                                <li><strong>AES-256</strong> (Industry standard for file/disk encryption).</li>
+                                <li><strong>ChaCha20</strong> (Fast for mobile/real-time use).</li>
+                            </ul>
+                        </li>
+                        <li>For <strong>Data in Transit</strong> (communication):
+                            <ul>
+                                <li><strong>TLS 1.2/1.3</strong> (HTTPS, VPNs, SSH).</li>
+                                <li><strong>PGP/GPG</strong> (Email/file encryption).</li>
+                            </ul>
+                        </li>
+                        <li>For <strong>Passwords</strong> (Hashing, not encryption!):
+                            <ul>
+                                <li><strong>Argon2, bcrypt, PBKDF2</strong> (Secure password storage).</li>
+                            </ul>
+                        </li>
+                        <li>Avoid:
+                            <ul>
+                                <li>DES, 3DES, MD5, SHA-1 (Outdated).</li>
+                                <li>Custom algorithms (Prone to flaws).</li>
+                            </ul>
+                        </li>
+                        <li>Example (AES-256 file encryption):
+                            <code>openssl enc -aes-256-cbc -salt -in secret.txt -out secret.enc</code>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p p2">
+                    <h2>2. Proper Key Management</h2>
+                    <ul>Why it matters:
+                        <li>Encryption keys are the "master keys" to your data—poor management = compromised security.</li>
+                        <li>Lost keys = permanently locked data.</li>
+                    </ul>
+                    <ul>How to apply it:
+                        <li>Generate <strong>long, random keys</strong> (e.g., 256-bit for AES).</li>
+                        <li>Store keys securely:
+                            <ul>
+                                <li><strong>HSMs</strong> (Hardware Security Modules).</li>
+                                <li><strong>Encrypted vaults</strong> (e.g., AWS KMS, HashiCorp Vault).</li>
+                            </ul>
+                        </li>
+                        <li>Rotate keys periodically (Especially in cloud environments).</li>
+                        <li>Never:
+                            <ul>
+                                <li>Hardcode keys in source code.</li>
+                                <li>Share keys over email/plaintext.</li>
+                            </ul>
+                        </li>
+                        <li>Example (Generate a secure key):
+                            <code>openssl rand -hex 32  # 256-bit key</code>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p p3">
+                    <h2>3. Secure Decryption & Access Control</h2>
+                    <ul>Why it matters:
+                        <li>Decrypting data carelessly can expose it to attackers (e.g., memory leaks, unauthorized access).</li>
+                    </ul>
+                    <ul>How to apply it:
+                        <li>Limit decryption to <strong>authorized users/apps</strong> (RBAC).</li>
+                        <li>Use <strong>secure memory handling</strong> (Clear keys from RAM after use).</li>
+                        <li>Verify <strong>data integrity</strong> (HMAC or digital signatures).</li>
+                        <li>Audit decryption events (Log access attempts).</li>
+                        <li>Avoid:
+                            <ul>
+                                <li>Decrypting data unnecessarily.</li>
+                                <li>Storing decrypted data in temp files/logs.</li>
+                            </ul>
+                        </li>
+                        <li>Example (Secure decryption):
+                            <code>openssl enc -d -aes-256-cbc -in secret.enc -out secret.txt</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div class="cryptMotor">
+        <div class="Encrypt">
+            <div class="encrypt-head">
+                <h1>Text Encryption</h1>
+                <h3>Write Any Text in The section below</h3>
+            </div>
+            <div class="input">
+                <textarea name="encrypt-text" id="text-to-encrypt"></textarea>
+            </div>
+            <div class="apply">
+                <button id="encrypt-btn" class="crypt-btn">Encypt</button>
+            </div>
+            <div class="output">
+             <textarea name="encrypt-text" id="text-of-encrypt" class="txt"></textarea>
+            </div>
+            <div class="cut">
+              copy
+           </div>
+        </div>
+        <div class="Decrypt hide">
+            <div class="encrypt-head">
+                <h1>Text Decryption</h1>
+                <h3>Write Any Decrypted Text in The section below</h3>
+            </div>
+            <div class="input">
+                <textarea name="decrypt-text" id="text-to-decrypt"></textarea>
+            </div>
+            <div class="apply">
+                <button id="decrypt-btn" class="crypt-btn">Decypt</button>
+            </div>
+            <div class="output">
+             <textarea name="decrypt-text" id="text-of-decrypt" class="txt"></textarea>
+            </div>
+            <div class="cut">
+               copy
+            </div>
+        </div>
+        <div class="switch">
+            <div class="info">Switch Mode</div>
+            <p>move it from ciphertext to readable text, the text should be Decrypted form this site or with the same role of Decrypting that this website use , to make you Decryption work!</p>
+            <div class="next">switch</div>
+            
+        </div>
+    </div>
+    <footer>
+        <div class="upfooter">
+
+            <div id="contact">
+                <ul><span>Contact Us</span>
+                    <li>Email: <a href="mailto:dhemaymrane@gmail.com">dhemaymrane@gmail.com</a></li>
+                    <li>Phone : +212 617-712194</li>
+                    <li>location: Oulad Teima Nahda El kobra</li>
+            </ul>
+        </div>
+        <div id="about">
+            <ul><span id="abt">About Us</span>
+                <li ><a href="https://www.instagram.com/aymranedhem/"  target="_blank"><img  src="9ce4c14052e30d09a0ffd1b86ac4e7f1.png" alt="not Exist" width="60px" height="50px" ></a></li>
+                <li><a href="https://www.linkedin.com/in/aymrane-dhem-529a962bb/" target="_blank"><img id="lnk" src="4a33508154c7f63e7f579d68fdacea8e.png"  alt="not Exist"width="35px" height="35px"></a></li>
+                <li><a href="https://www.codewars.com/users/aymran"  target="_blank"><img id="war" src="icons8-codewars-48.png"  alt="not Exist"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="downfooter">
+        <p>&copy; 2025 Crypmo | All rights reserved</p>
+    </div>
+    </footer>
     <script src="index.js">
     </script>
 </body>
